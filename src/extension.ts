@@ -2,27 +2,42 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	console.log('Congratulations, your extension "chip" is now active!');
-	context.subscriptions.push(vscode.commands.registerCommand('chip.openYoutube', () => {
+	context.subscriptions.push(vscode.commands.registerCommand('chip.Chip', () => {
+		const column = { viewColumn: vscode.ViewColumn.Beside, preserverFocus: true };
+		const options = { enableScripts: true };
 		const panel = vscode.window.createWebviewPanel(
 			'chip',
-			'YouTube Video',
-			vscode.ViewColumn.One,
-			{}
+			'Chip',
+			column,
+			options
 		);
 		panel.reveal();
 		panel.webview.html = `
 			<!DOCTYPE html>
 			<html>
-			<head>
-				<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<title>YouTube Video</title>
-			</head>
-			<body>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/WIRK_pGdIdA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			</body>
-			</html>
-		`;
+				<head>
+					<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<style>
+                        #video {
+                            display: flex;
+                            flex-flow: column nowrap;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    </style>
+					<title>Chip</title>
+				</head>
+				<body>
+					<div id="video">
+							<video id="video-play" autoplay loop controls width="300">
+								<source src='https://yewtu.be/latest_version?id=WIRK_pGdIdA&itag=18#t=100&local=true'>
+							</video>
+					</div>
+				</body>
+            </html>	
+			`;
 	}));
 }
