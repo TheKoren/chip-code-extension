@@ -1,13 +1,16 @@
-# chip README
-
-This is the README for your extension "chip". After writing up a brief description, we recommend including the following sections.
+# Spinning chip VSCode extension
 
 ## Features
 
-Plays the infamous chip video in a new panel.
+Plays the infamous chip video in a new vs code window.
 
-## Following extension guidelines
+## Setup
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+Since the extension is not deployed (it was made for experimental purposes), simply follow the instructions below:
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+1. Clone the repository
+2. Open the project in Visual Code
+3. Install depedencies
+    > npm install
+4. Press F5 to open the debug window.
+5. Open command palette in the debug environment, and type the command `Spinning Chip`
